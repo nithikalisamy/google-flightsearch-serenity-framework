@@ -1,4 +1,4 @@
-package superchoice;
+package superchoice.stepDefinitions;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
@@ -19,7 +19,7 @@ public class HomePageStepDefinitions {
 
     @When("Sally searches for round trip flight")
     public void sallySearchesForRoundTripFlight(DataTable searchDetails) {
-
+        homePageSteps.userSearchesForRoundTripFlight(searchDetails);
     }
 
     @When("Sally searches for multi-city flight")
