@@ -1,11 +1,11 @@
 @demo
-Feature: Google flight search
+Feature: 002_Google flight search for round trip and multi city validation
 
   Background: User starts from the google flights search website
     Given Sally is on the google flights search website
 
   @roundtrip
-  Scenario Outline: Sally searches for a round trip
+  Scenario Outline: 002_01_Sally searches for a round trip
     When Sally searches for round trip flight
       | Origin        | <origin>       |
       | Destination   | <destination>  |
@@ -24,7 +24,7 @@ Feature: Google flight search
       | Singapore | Sydney      | 7 days later  | 21 days later |
 
   @multicity
-  Scenario Outline: Sally searches for a multi-city trip
+  Scenario Outline: 002_02_Sally searches for a multi-city trip
     When Sally searches for multi-city flight
       | Origin          | <origin>        |
       | Destination 1   | <destination1>  |

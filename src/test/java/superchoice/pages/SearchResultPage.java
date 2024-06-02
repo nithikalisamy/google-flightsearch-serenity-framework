@@ -29,8 +29,7 @@ public class SearchResultPage extends PageObject {
     @FindBy(xpath = txaSearchHeading_xpath)
     private WebElementFacade txaSearchHeading;
 
-    /**
-     * Returns section title to steps page for assertion to validate the correct sub heading is displayed
+    /** Returns section title to steps page for assertion to validate the correct sub heading is displayed
      */
     public String getSearchResultSectionHeading(String sectionTitle) {
         String sectionTitleFromUI = null;
@@ -43,8 +42,7 @@ public class SearchResultPage extends PageObject {
         return sectionTitleFromUI;
     }
 
-    /**
-     * Selects the first available result option from various search results on corresponding round or multi city
+    /** Selects the first available result option from various search results on corresponding round or multi city
      * searches. Also, adds the individual flight details to the class variable for assertion
      */
     public void userSelectsTheFirstFlightUnderBestFlights() {
@@ -53,8 +51,7 @@ public class SearchResultPage extends PageObject {
         txaReturningFirstFlightSection.waitUntilClickable().click();
     }
 
-    /**
-     * Common function added to return round trip and multi trip details to be steps page for assertion
+    /** Common function added to return round trip and multi trip details to be steps page for assertion
      * using lambda expression
      */
     public List<String> getIndividualFlightDetailsFromSearchPage() {
