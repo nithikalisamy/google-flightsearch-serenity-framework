@@ -17,7 +17,9 @@ You can run this project with a system that satisfies the above setup requiremen
 * Run the below command
   mvn clean verify
 
-Note: This project can be configured with Jenkins as well, please refer Jenkins manual to configure this project.
+Note: 
+* 'demo' tag has been used inside the feature and runner file, hence no need to specify tags for maven execution. 
+* This project can be configured with Jenkins as well, please refer Jenkins manual to configure this project.
 
 ## Generating the reports ##
 
