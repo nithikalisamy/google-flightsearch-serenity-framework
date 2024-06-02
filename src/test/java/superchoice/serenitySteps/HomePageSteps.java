@@ -4,7 +4,7 @@ import io.cucumber.datatable.DataTable;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.Serenity;
 import org.junit.Assert;
-import superchoice.TestData.GoogleFlightDefaultValues;
+import superchoice.testData.GoogleFlightDefaultValues;
 import superchoice.pages.HomePage;
 
 import java.util.List;
