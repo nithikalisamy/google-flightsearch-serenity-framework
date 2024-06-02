@@ -1,5 +1,5 @@
 # Flight Search By Google
-This repository implements Serenity BDD to perform automation tests on the Google Flight search functionality.
+This repository uses Serenity BDD to perform automation tests on the Google Flight search functionality.
 
 ## Set up ##
 
