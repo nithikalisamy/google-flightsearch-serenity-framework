@@ -2,10 +2,10 @@ package superchoice.serenitySteps;
 
 import io.cucumber.datatable.DataTable;
 import net.serenitybdd.annotations.Step;
+import net.serenitybdd.core.Serenity;
 import org.junit.Assert;
 import superchoice.pages.HomePage;
 
-import java.time.Duration;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.containsString;
@@ -23,6 +23,8 @@ public class HomePageSteps {
 
     @Step
     public void userSearchesForRoundTripFlight(DataTable searchDetails) {
+        Serenity.setSessionVariable("tripType").to("RoundTrip");
+
         List<List<String>> flightDetails = searchDetails.asLists();
 
         String origin = flightDetails.get(0).get(1);
@@ -32,7 +34,7 @@ public class HomePageSteps {
 
         System.out.println(origin + "  " + destination + "  " + departureDay + "  " + returnDay);
 
-        Assert.assertEquals(homePage.getSelectTripType(),"Round trip");
+        Assert.assertEquals(homePage.getSelectTripType(), "Round trip");
 
         homePage.enterOriginCountry(origin, "RoundTrip");
         homePage.enterDestinationCountry(destination);
@@ -47,6 +49,8 @@ public class HomePageSteps {
     }
 
     public void userSearchesForMultiCityFlight(DataTable searchDetails) {
+        Serenity.setSessionVariable("tripType").to("MultiCity");
+
         List<List<String>> flightDetails = searchDetails.asLists();
 
         String origin = flightDetails.get(0).get(1);
@@ -61,7 +65,8 @@ public class HomePageSteps {
 
         System.out.println(origin + "  " + destination1 + "  " + departureDay1 + "  " + destination2 + "  " + departureDay2 + "  " + destination3 + "  " + departureDay3);
 
-        homePage.selectTripType("Multi-city");
+        homePage.selectTripType("MultiCity");
+        homePage.addAdditionalStopOverFlightToSearch();
 
         homePage.enterOriginCountry(origin, "MultiCity");
 
