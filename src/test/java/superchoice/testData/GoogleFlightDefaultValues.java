@@ -1,4 +1,4 @@
-package superchoice.TestData;
+package superchoice.testData;
 
 public class GoogleFlightDefaultValues {
 
