@@ -1,6 +1,9 @@
 # Flight Search By Google
 This repository uses Serenity BDD to perform automation tests on the Google Flight search functionality.
 
+Currently, this project only supports testing the round trip and multi-city (up to 3 destinations) functionalities.
+Please refer to the feature files for configuring the test cases with different data table values.
+
 ## Set up ##
 
 * Java 11 or higher
