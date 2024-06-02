@@ -38,6 +38,8 @@ public class SearchResultPage extends PageObject {
     @FindBy(xpath = txaSearchHeading_xpath)
     private WebElementFacade txaSearchHeading;
 
+    /** Returns section title to steps page for assertion to validate the correct sub heading is displayed
+     */
     public String getSearchResultSectionHeading(String sectionTitle) {
         String sectionTitleFromUI = null;
         Serenity.setSessionVariable("sectionTitle").to(sectionTitle);
@@ -49,6 +51,9 @@ public class SearchResultPage extends PageObject {
         return sectionTitleFromUI;
     }
 
+    /** Selects the first available result option from various search results on corresponding round or multi city
+     * searches. Also, adds the individual flight details to the class variable for assertion
+     */
     public void userSelectsTheFirstFlightUnderBestFlights() {
         String sectionTitle = Serenity.sessionVariableCalled("sectionTitle");
         String tripType = Serenity.sessionVariableCalled("tripType");
@@ -61,6 +66,8 @@ public class SearchResultPage extends PageObject {
         txaReturningFirstFlightSection.waitUntilClickable().click();
     }
 
+    /** Common function added to return round trip and multi trip details to be steps page for assertion
+     */
     public ArrayList<String> getIndividualFlightDetailsFromSearchPage() {
         ArrayList<String> flightDetails = new ArrayList<>();
 

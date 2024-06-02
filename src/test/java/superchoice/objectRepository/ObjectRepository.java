@@ -9,6 +9,7 @@ public class ObjectRepository {
         public static final String txtOriginCountryMultiCity_css = "div > div[data-max-locations='5'] input[aria-label='Where from?']";
         public static final String txtDestinationCountry_css = "input[aria-label*='Where to?']";
         public static final String txtDestinationCountryMultiCity_xpath = "(//div[@data-max-locations='5'] //input[contains(@aria-label,'Where to?')])[var]";
+        public static final String txtDestinationCountryMultiCityTotalCount_xpath = "//div[@data-max-locations='5']/div/div";
         public static final String txtDestinationCountrySelection_css = "div[aria-label*='Enter your destination'] li";
         public static final String txtOriginCountrySelection_css = "div[aria-label*='Enter your origin'] li";
         public static final String txtDepartureDate_xpath = "//input[@aria-label='Departure'][1]";
@@ -23,7 +24,7 @@ public class ObjectRepository {
         public static final String btnDoneMultiCity_xpath = "(//div[@__is_owner='true'] //button //span[text()='Done'])[var]";
         public static final String btnSearch_css = "button[aria-label='Search']";
         public static final String selectTripType_xpath = "//div[@aria-haspopup='listbox' and @aria-labelledby='i6 i7']/..";
-        public static final String selectTripTypeList_xpath = "//div[@aria-haspopup='listbox' and @aria-labelledby='i6 i7']/.. //ul //li[@data-value='3']";
+        public static final String selectTripTypeList_xpath = "//div[@aria-haspopup='listbox' and @aria-labelledby='i6 i7']/.. //ul //li[@data-value='var']";
 
     }
 

@@ -65,7 +65,8 @@ public class HomePageSteps {
 
         System.out.println(origin + "  " + destination1 + "  " + departureDay1 + "  " + destination2 + "  " + departureDay2 + "  " + destination3 + "  " + departureDay3);
 
-        homePage.selectTripType("Multi-city");
+        homePage.selectTripType("MultiCity");
+        homePage.addAdditionalStopOverFlightToSearch();
 
         homePage.enterOriginCountry(origin, "MultiCity");
 
