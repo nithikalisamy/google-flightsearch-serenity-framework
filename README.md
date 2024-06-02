@@ -21,14 +21,14 @@ Note: This project can be configured with Jenkins as well, please refer Jenkins 
 
 ## Generating the reports ##
 
-By default, Serenity BDD will create reports with aggregate function and when you run maven build command(mvn clean verify), the aggregate funciton is called within to generate the reports.
+By default, Serenity BDD will create reports with an aggregate function and when you run the maven build command (mvn clean verify), the aggregate function is called within to generate the reports.
 
-Hence, the reports will be ready under /target/site/serenity folder upon maven build execution completes.
+Hence, the reports will be ready under **/target/site/serenity** folder upon completion of maven build execution.
 
 ### Result files ###
 
 Reports come in two variants.
 
-* Index.html file (Detailed report file used for analysing the test cases details)
+* index.html file (Detailed report file used for analysing the test cases details)
 * serenity-summary.html file (Summary report with high level details on the test execution)
   
