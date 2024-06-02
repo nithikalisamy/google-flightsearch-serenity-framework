@@ -15,6 +15,8 @@ import static superchoice.objectRepository.ObjectRepository.SearchResultPageLoca
 
 public class SearchResultPage extends PageObject {
 
+    public ArrayList<String> individualFlightDetails = new ArrayList<>();
+
     @FindBy(xpath = txaTopDepartingFlightSection_xpath)
     private WebElementFacade txaTopDepartingFlightSection;
     @FindBy(xpath = listTopDepartingFirstFlightSelection_xpath)
@@ -39,7 +41,7 @@ public class SearchResultPage extends PageObject {
     public String getSearchResultSectionHeading(String sectionTitle) {
         String sectionTitleFromUI = null;
         Serenity.setSessionVariable("sectionTitle").to(sectionTitle);
-        if(StringUtils.containsIgnoreCase(sectionTitle, "flights")) {
+        if (StringUtils.containsIgnoreCase(sectionTitle, "flights")) {
             sectionTitleFromUI = withTimeoutOf(Duration.ofSeconds(60)).waitFor(txaSearchHeading).waitUntilVisible().getText();
         } else if (sectionTitle.equalsIgnoreCase("Booking options")) {
             sectionTitleFromUI = withTimeoutOf(Duration.ofSeconds(60)).waitFor(txaBookingOptions).waitUntilVisible().getText();
@@ -49,35 +51,20 @@ public class SearchResultPage extends PageObject {
 
     public void userSelectsTheFirstFlightUnderBestFlights() {
         String sectionTitle = Serenity.sessionVariableCalled("sectionTitle");
-        System.out.println("sectionTitle in userSelectsTheFirstFlightUnderBestFlights: " +sectionTitle);
-        if(StringUtils.containsIgnoreCase(sectionTitle, "returning")) {
-//            withTimeoutOf(Duration.ofSeconds(60)).waitFor(txaReturningFlightSection).waitUntilVisible();
-//            System.out.println(txaReturningFlightSection.waitUntilVisible().getText());
+        String tripType = Serenity.sessionVariableCalled("tripType");
 
-            withTimeoutOf(Duration.ofSeconds(60)).waitFor(txaReturningFirstFlightSection).waitUntilVisible();
-            Serenity.setSessionVariable("returningFlightDetails").to(txaReturningFirstFlightSectionDetails.getAttribute("aria-label"));
-            txaReturningFirstFlightSection.waitUntilClickable().click();
-        }
-//        else {
-////            String flightResultTopOrBest = withTimeoutOf(Duration.ofSeconds(60)).waitFor(txaTopDepartingFlightSection).waitUntilVisible().getText();
-//            String flightResultTopOrBest = withTimeoutOf(Duration.ofSeconds(60)).waitFor(txaBookingOptions).waitUntilVisible().getText();
-//            if(StringUtils.containsIgnoreCase(flightResultTopOrBest, "Top departing")) {
-//                withTimeoutOf(Duration.ofSeconds(30)).waitFor(listTopDepartingFirstFlightSelection).waitUntilClickable().click();
-//            } else if(StringUtils.containsIgnoreCase(flightResultTopOrBest, "Best departing")) {
-//                withTimeoutOf(Duration.ofSeconds(30)).waitFor(listBestDepartingFirstFlightSelection).waitUntilClickable().click();
-//            }
-//        }
-         else {
-            withTimeoutOf(Duration.ofSeconds(30)).waitFor(txaBestDepartingFirstFlightSelection).waitUntilVisible();
-            Serenity.setSessionVariable("departingFlightDetails").to(txaBestDepartingFirstFlightSelectionDetails.getAttribute("aria-label"));
-            txaBestDepartingFirstFlightSelection.waitUntilClickable().click();
-        }
+        System.out.println("sectionTitle in userSelectsTheFirstFlightUnderBestFlights: " + sectionTitle);
+        System.out.println("tripType in userSelectsTheFirstFlightUnderBestFlights: " + tripType);
+
+        withTimeoutOf(Duration.ofSeconds(60)).waitFor(txaReturningFirstFlightSection).waitUntilVisible();
+        individualFlightDetails.add(txaReturningFirstFlightSectionDetails.getAttribute("aria-label"));
+        txaReturningFirstFlightSection.waitUntilClickable().click();
     }
 
     public ArrayList<String> getIndividualFlightDetailsFromSearchPage() {
         ArrayList<String> flightDetails = new ArrayList<>();
 
-        for(WebElementFacade element: txaBookingOptionsDetails)      {
+        for (WebElementFacade element : txaBookingOptionsDetails) {
             String details = element.find(By.tagName("span")).getAttribute("aria-label");
             flightDetails.add(details);
         }

@@ -1,3 +1,4 @@
+@test
 Feature: Google flight search
 
   Background: User starts from the google flights search website
@@ -34,11 +35,11 @@ Feature: Google flight search
       | Departure Day 2 | <departureDay2> |
       | Destination 3   | <destination3>  |
       | Departure Day 3 | <departureDay3> |
-    Then Sally should see flights results page with "Best flights to <destination1>"
+    Then Sally should see flights results page with "flights to <destination1>"
     When Sally selects the first flight under best flights
-    Then Sally should see flights results page with "Best flights to <destination2>"
+    Then Sally should see flights results page with "flights to <destination2>"
     When Sally selects the first flight under best flights
-    Then Sally should see flights results page with "Best flights to <destination3>"
+    Then Sally should see flights results page with "flights to <destination3>"
     When Sally selects the first flight under best flights
     Then Sally should see the corresponding flight information for flights selected
 

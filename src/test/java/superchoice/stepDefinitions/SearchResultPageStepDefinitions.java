@@ -1,12 +1,9 @@
 package superchoice.stepDefinitions;
 
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;
-import superchoice.serenitySteps.HomePageSteps;
 import superchoice.serenitySteps.SearchResultPageSteps;
 
 public class SearchResultPageStepDefinitions {
