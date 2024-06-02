@@ -4,16 +4,18 @@ import io.cucumber.datatable.DataTable;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.Serenity;
 import org.junit.Assert;
+import superchoice.TestData.GoogleFlightDefaultValues;
 import superchoice.pages.HomePage;
 
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static superchoice.utils.dateUtil.getPastorFutureDateUsingCurrentDate;
+import static superchoice.utils.DateUtil.getPastorFutureDateUsingCurrentDate;
 
 public class HomePageSteps {
-    HomePage homePage;
+    HomePage homePage = new HomePage();
+    GoogleFlightDefaultValues googleFlightDefaultValues = new GoogleFlightDefaultValues();
 
     @Step
     public void userIsOnTheGoogleFlightSearchWebsite() {
@@ -51,6 +53,9 @@ public class HomePageSteps {
     public void userSearchesForMultiCityFlight(DataTable searchDetails) {
         Serenity.setSessionVariable("tripType").to("MultiCity");
 
+        /* Extract the test data from Data table and assign the corresponding details into the respective
+        variable to execute the scenario
+         */
         List<List<String>> flightDetails = searchDetails.asLists();
 
         String origin = flightDetails.get(0).get(1);
@@ -66,23 +71,33 @@ public class HomePageSteps {
         System.out.println(origin + "  " + destination1 + "  " + departureDay1 + "  " + destination2 + "  " + departureDay2 + "  " + destination3 + "  " + departureDay3);
 
         homePage.selectTripType("MultiCity");
+
         homePage.addAdditionalStopOverFlightToSearch();
 
         homePage.enterOriginCountry(origin, "MultiCity");
 
+        //Index is based on the number of destination country to avoid hard coded locators
         homePage.enterDestinationCountryForMultiCity(destination1, 1);
         homePage.enterDestinationCountryForMultiCity(destination2, 2);
         homePage.enterDestinationCountryForMultiCity(destination3, 3);
 
-        String firstDepartureDefaultDate = getPastorFutureDateUsingCurrentDate(16);
+        /* Google flight logic to show the default date is calculated to be 16 days from today and the following
+        subsequent departure defaults date delta is 4 days from 16 days. this has been configured inside the
+        page elements and logic is used below to identify the correct departure date based on the above calculation.
+        This is used to avoid the hard coded locators to be used inside the code.
+        And then the expected departure from test data is passed onto the page files to select for all destinations.
+         */
+        String firstDepartureDefaultDate = getPastorFutureDateUsingCurrentDate(googleFlightDefaultValues.getDefaultDepartureDateValue());
         String departureDate1 = getPastorFutureDateUsingCurrentDate(Integer.parseInt(departureDay1));
         homePage.enterDepartureDateForMultiCity(firstDepartureDefaultDate, departureDate1, 1);
 
-        String secondDepartureDefaultDate = getPastorFutureDateUsingCurrentDate(20);
+        String secondDepartureDefaultDate = getPastorFutureDateUsingCurrentDate(googleFlightDefaultValues.getDefaultDepartureDateValue()
+                + googleFlightDefaultValues.getDefaultDepartureDateDelta());
         String departureDate2 = getPastorFutureDateUsingCurrentDate(Integer.parseInt(departureDay2));
         homePage.enterDepartureDateForMultiCity(secondDepartureDefaultDate, departureDate2, 2);
 
-        String thirdDepartureDefaultDate = getPastorFutureDateUsingCurrentDate(24);
+        String thirdDepartureDefaultDate = getPastorFutureDateUsingCurrentDate(googleFlightDefaultValues.getDefaultDepartureDateValue()
+                + ( googleFlightDefaultValues.getDefaultDepartureDateDelta() * 2));
         String departureDate3 = getPastorFutureDateUsingCurrentDate(Integer.parseInt(departureDay3));
         homePage.enterDepartureDateForMultiCity(thirdDepartureDefaultDate, departureDate3, 3);
 

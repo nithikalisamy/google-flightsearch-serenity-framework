@@ -75,9 +75,7 @@ public class HomePage extends PageObject {
         int size = txtDestinationCountryMultiCityTotalCount.size();
         $(Button.withText("Add flight")).waitUntilVisible().click();
 
-        /* Wait until newly added flight section to be visible
-         *  size will get the added additional flight entry index
-         */
+        //Wait until newly added flight section to be visible size will get the added additional flight entry index
         waitFor(ExpectedConditions.visibilityOf(txtDestinationCountryMultiCityTotalCount.get(size)));
     }
 
@@ -108,7 +106,7 @@ public class HomePage extends PageObject {
         waitABit(1000);
         $(By.cssSelector(dtpSelectDate_css.replace("var", departureDate))).waitUntilVisible().click();
         btnDone.waitUntilClickable().click();
-//        System.out.println("Departure Date" + txtDepartureDate.waitUntilVisible().getValue());
+        //System.out.println("Departure Date" + txtDepartureDate.waitUntilVisible().getValue());
     }
 
     public void enterReturnDate(String returnDate) {
@@ -118,7 +116,7 @@ public class HomePage extends PageObject {
         waitABit(1000);
         $(By.cssSelector(dtpSelectDate_css.replace("var", returnDate))).waitUntilVisible().click();
         btnDone.waitUntilClickable().click();
-//        System.out.println("Return Date" + txtReturnDate.waitUntilVisible().getValue());
+        //System.out.println("Return Date" + txtReturnDate.waitUntilVisible().getValue());
     }
 
     public void enterDepartureDateForMultiCity(String firstDepartureDefaultDate, String departureDate, int indexDate) {
@@ -135,8 +133,8 @@ public class HomePage extends PageObject {
 
         $(By.xpath(btnDoneMultiCity_xpath.replace("var", String.valueOf(indexDate)))).waitUntilVisible().click();
 
-//        departureDateXpath = txtDepartureDateMultiCity_xpath.replace("var", departureDate);
-//        System.out.println("Departure Date : " + $(departureDateXpath).waitUntilVisible().getAttribute("data-value"));
+        //departureDateXpath = txtDepartureDateMultiCity_xpath.replace("var", departureDate);
+        //System.out.println("Departure Date : " + $(departureDateXpath).waitUntilVisible().getAttribute("data-value"));
     }
 
     public void clickSearch() {
