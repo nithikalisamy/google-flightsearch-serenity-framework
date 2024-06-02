@@ -19,7 +19,7 @@ Feature: Google flight search
     And Sally should see the corresponding flight information for flights selected
 
     Examples:
-      | origin    | destination | departureDay  | returnDay    |
+      | origin    | destination | departureDay  | returnDay     |
       | Sydney    | New York    | 10 days later | 30 days later |
       | Singapore | Sydney      | 7 days later  | 21 days later |
 

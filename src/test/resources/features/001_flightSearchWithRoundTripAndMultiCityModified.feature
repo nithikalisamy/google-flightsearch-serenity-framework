@@ -1,5 +1,5 @@
 @demo
-Feature: Google flight search
+Feature: Google flight search for round trip and multi city validation
 
   Background: User starts from the google flights search website
     Given Sally is on the google flights search website
@@ -21,9 +21,10 @@ Feature: Google flight search
     And Sally should see the corresponding flight information for flights selected
 
     Examples:
-      | origin    | destination | departureDay  | returnDay    |
+      | origin    | destination | departureDay  | returnDay     |
       | Sydney    | New York    | 10 days later | 30 days later |
       | Singapore | Sydney      | 7 days later  | 21 days later |
+
 
   @multicity
   Scenario Outline: Sally searches for a multi-city trip

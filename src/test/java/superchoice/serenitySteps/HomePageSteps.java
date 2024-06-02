@@ -17,12 +17,18 @@ public class HomePageSteps {
     HomePage homePage = new HomePage();
     GoogleFlightDefaultValues googleFlightDefaultValues = new GoogleFlightDefaultValues();
 
+    /* This function opens the Google flight home page and then checks the page title
+     */
     @Step
     public void userIsOnTheGoogleFlightSearchWebsite() {
         homePage.open();
         assertThat(homePage.getPageTitle(), containsString("Google Flights"));
     }
 
+    /* Function is used to enter all the necessary details required for round trip search by extracting the data table
+     * and assigning it to the local variable. Then all the details are passed into the relevant element in Home page
+     * for locating and entering the values
+     */
     @Step
     public void userSearchesForRoundTripFlight(DataTable searchDetails) {
         Serenity.setSessionVariable("tripType").to("RoundTrip");
@@ -50,6 +56,11 @@ public class HomePageSteps {
         homePage.clickSearch();
     }
 
+    /* Function is used to enter all the necessary details required for multi city search by extracting the data table
+     * and assigning it to the local variable. Then all the details are passed into the relevant element in Home page
+     * for locating and entering the values
+     */
+    @Step
     public void userSearchesForMultiCityFlight(DataTable searchDetails) {
         Serenity.setSessionVariable("tripType").to("MultiCity");
 
@@ -97,7 +108,7 @@ public class HomePageSteps {
         homePage.enterDepartureDateForMultiCity(secondDepartureDefaultDate, departureDate2, 2);
 
         String thirdDepartureDefaultDate = getPastorFutureDateUsingCurrentDate(googleFlightDefaultValues.getDefaultDepartureDateValue()
-                + ( googleFlightDefaultValues.getDefaultDepartureDateDelta() * 2));
+                + (googleFlightDefaultValues.getDefaultDepartureDateDelta() * 2));
         String departureDate3 = getPastorFutureDateUsingCurrentDate(Integer.parseInt(departureDay3));
         homePage.enterDepartureDateForMultiCity(thirdDepartureDefaultDate, departureDate3, 3);
 
