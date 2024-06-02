@@ -12,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class SearchResultPageSteps {
     SearchResultPage searchResultPage;
 
-    /* This function checks the search results section title and makes sure it is the expected section
+    /** This function checks the search results section title and makes sure it is the expected section
      */
     @Step
     public void userShouldSeeFlightsResultsPageWith(String sectionTitle) {
@@ -20,14 +20,14 @@ public class SearchResultPageSteps {
         assertThat(sectionTitleFromUI, containsStringIgnoringCase(sectionTitle));
     }
 
-    /* This function select the first available search results
+    /** This function select the first available search results
      */
     @Step
     public void userSelectsTheFirstFlightUnderBestFlights() {
         searchResultPage.userSelectsTheFirstFlightUnderBestFlights();
     }
 
-    /* This function ensures the previously selected flight details are correct at the booking page
+    /** This function ensures the previously selected flight details are correct at the booking page
      */
     @Step
     public void userShouldSeeTheCorrespondingFlightInformationForFlightsSelected() {

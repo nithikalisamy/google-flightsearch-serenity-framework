@@ -46,23 +46,20 @@ public class HomePage extends PageObject {
     private WebElementFacade btnSearch;
 
 
-    /**
-     * This function returns the page title
+    /** This function returns the page title
      */
     public String getPageTitle() {
         return getDriver().getTitle();
     }
 
-    /**
-     * This function returns the Trip type
+    /** This function returns the Trip type
      */
     public String getSelectTripType() {
         withTimeoutOf(Duration.ofSeconds(60)).waitFor(txaSearchSection).waitUntilVisible();
         return txaTripType.waitUntilVisible().getText();
     }
 
-    /**
-     * This function selects the given Trip type
+    /** This function selects the given Trip type
      */
     public void selectTripType(String type) {
         withTimeoutOf(Duration.ofSeconds(60)).waitFor(txaSearchSection).waitUntilVisible();
@@ -74,8 +71,7 @@ public class HomePage extends PageObject {
         waitFor(ExpectedConditions.invisibilityOfElementLocated(By.xpath(selectTripTypeList_xpath)));
     }
 
-    /**
-     * This function add additional stop over by clicking the 'Add flight' button
+    /** This function add additional stop over by clicking the 'Add flight' button
      */
     public void addAdditionalStopOverFlightToSearch() {
         int size = txtDestinationCountryMultiCityTotalCount.size();
@@ -85,8 +81,7 @@ public class HomePage extends PageObject {
         waitFor(ExpectedConditions.visibilityOf(txtDestinationCountryMultiCityTotalCount.get(size)));
     }
 
-    /**
-     * This function enters origin country into the element
+    /** This function enters origin country into the element
      */
     public void enterOriginCountry(String origin, String tripType) {
         if (tripType.equalsIgnoreCase("RoundTrip")) {
@@ -97,16 +92,14 @@ public class HomePage extends PageObject {
         txtOriginCountrySelection.waitUntilClickable().click();
     }
 
-    /**
-     * This function enters destination country into the element for round trip search
+    /** This function enters destination country into the element for round trip search
      */
     public void enterDestinationCountry(String destination) {
         typeInto(txtDestinationCountry, destination);
         txtDestinationCountrySelection.waitUntilClickable().click();
     }
 
-    /**
-     * This function enters destination country into the elements for multi city search
+    /** This function enters destination country into the elements for multi city search
      */
     public void enterDestinationCountryForMultiCity(String destination, int index) {
         String destinationCountryXpath = txtDestinationCountryMultiCity_xpath.replace("var", String.valueOf(index));
@@ -114,8 +107,7 @@ public class HomePage extends PageObject {
         txtDestinationCountrySelection.waitUntilClickable().click();
     }
 
-    /**
-     * This function enters departure date for round trip search
+    /** This function enters departure date for round trip search
      */
     public void enterDepartureDate(String departureDate) {
         txtDepartureDate.waitUntilVisible().click();
@@ -127,8 +119,7 @@ public class HomePage extends PageObject {
         //System.out.println("Departure Date" + txtDepartureDate.waitUntilVisible().getValue());
     }
 
-    /**
-     * This function enters return date for round trip search
+    /** This function enters return date for round trip search
      */
     public void enterReturnDate(String returnDate) {
         txtReturnDate.waitUntilVisible().click();
@@ -140,8 +131,7 @@ public class HomePage extends PageObject {
         //System.out.println("Return Date" + txtReturnDate.waitUntilVisible().getValue());
     }
 
-    /**
-     * This function enters departure dates for multi city search
+    /** This function enters departure dates for multi city search
      */
     public void enterDepartureDateForMultiCity(String firstDepartureDefaultDate, String departureDate, int indexDate) {
         String departureDateXpath = txtDepartureDateMultiCity_xpath.replace("var", firstDepartureDefaultDate);
@@ -161,8 +151,7 @@ public class HomePage extends PageObject {
         //System.out.println("Departure Date : " + $(departureDateXpath).waitUntilVisible().getAttribute("data-value"));
     }
 
-    /**
-     * This function clicks on search button available on the page
+    /** This function clicks on search button available on the page
      */
     public void clickSearch() {
         btnSearch.waitUntilClickable().click();

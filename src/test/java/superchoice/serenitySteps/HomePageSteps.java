@@ -17,7 +17,7 @@ public class HomePageSteps {
     HomePage homePage = new HomePage();
     GoogleFlightDefaultValues googleFlightDefaultValues = new GoogleFlightDefaultValues();
 
-    /* This function opens the Google flight home page and then checks the page title
+    /** This function opens the Google flight home page and then checks the page title
      */
     @Step
     public void userIsOnTheGoogleFlightSearchWebsite() {
@@ -25,7 +25,7 @@ public class HomePageSteps {
         assertThat(homePage.getPageTitle(), containsString("Google Flights"));
     }
 
-    /* Function is used to enter all the necessary details required for round trip search by extracting the data table
+    /** Function is used to enter all the necessary details required for round trip search by extracting the data table
      * and assigning it to the local variable. Then all the details are passed into the relevant element in Home page
      * for locating and entering the values
      */
@@ -56,7 +56,7 @@ public class HomePageSteps {
         homePage.clickSearch();
     }
 
-    /* Function is used to enter all the necessary details required for multi city search by extracting the data table
+    /** Function is used to enter all the necessary details required for multi city search by extracting the data table
      * and assigning it to the local variable. Then all the details are passed into the relevant element in Home page
      * for locating and entering the values
      */
