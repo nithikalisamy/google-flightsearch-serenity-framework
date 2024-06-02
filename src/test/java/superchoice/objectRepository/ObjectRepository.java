@@ -29,18 +29,10 @@ public class ObjectRepository {
     }
 
     public class SearchResultPageLocators {
-        public static final String txaTopDepartingFlightSection_xpath = "(//h3[text()='Top departing flights' or " +
-                "text()='Best departing flights'])[1]";
-        public static final String listTopDepartingFirstFlightSelection_xpath = "(//div[not(@style) and @role='tabpanel']" +
-                "  //ul //li )[1]";
-        public static final String txaBestDepartingFirstFlightSelection_xpath = "(//h2[text()='Search results']/.. //ul //li)[1]";
-        public static final String txaBestDepartingFirstFlightSelectionDetails_xpath = "((//h2[text()='Search results']/.. //ul //li)[1] //span)[1]";
         public static final String txaSearchHeading_xpath = "//h2[text()='Search results']/.. //h3";
-        public static final String txaReturningFlightSection_xpath = "//h3[text()='Returning flights' or text()='Best returning flights']";
         public static final String txaReturningFirstFlightSection_xpath = "//h2[text()='Search results']/.. //ul //li[1]";
         public static final String txaReturningFirstFlightSectionDetails_xpath = "(//h2[text()='Search results']/.. //ul //li[1] //span)[1]";
         public static final String txaBookingOptions_xpath = "//h2[text()='Booking options']";
         public static final String txaBookingOptionsDetails_xpath = "//div[@role='list'] //div[@role='listitem'] //div[@data-withmodel='false']";
-
     }
 }

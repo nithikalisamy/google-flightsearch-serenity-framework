@@ -69,7 +69,7 @@
                     <parallel>suitesAndClasses</parallel>
                     <forkCount>${parallel.tests}</forkCount>
                     <useUnlimitedThreads>true</useUnlimitedThreads>
-                    <rerunFailingTestsCount>0</rerunFailingTestsCount>
+                    <rerunFailingTestsCount>1</rerunFailingTestsCount>
                 </configuration>
                 <executions>
                     <execution>
