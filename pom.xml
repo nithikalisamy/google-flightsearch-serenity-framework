@@ -64,12 +64,12 @@
                 <version>${maven.plugin.version}</version>
                 <configuration>
                     <includes>
-                        <include>**/superchoice/demo/DemoTestSuite.java</include>
+                        <include>**/superchoice/DemoTestSuite.java</include>
                     </includes>
                     <parallel>suitesAndClasses</parallel>
                     <forkCount>${parallel.tests}</forkCount>
                     <useUnlimitedThreads>true</useUnlimitedThreads>
-                    <rerunFailingTestsCount>1</rerunFailingTestsCount>
+                    <rerunFailingTestsCount>0</rerunFailingTestsCount>
                 </configuration>
                 <executions>
                     <execution>
